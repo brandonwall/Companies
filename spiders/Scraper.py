@@ -29,15 +29,4 @@ class CompanySpider(scrapy.Spider):
              }
 
 
-            
-'''for coset in response.css(SET_SELECTOR):
-            NAME_SELECTOR = 'li::text '
-            NAME_SELECTOR2 = 'a::text '
-
-            yield {
-                'name': coset.css(NAME_SELECTOR).extract_first(),
-                'name2':coset.css(NAME_SELECTOR2).extract_first(),
-                
-            }'''
-
 

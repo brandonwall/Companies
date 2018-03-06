@@ -6,16 +6,23 @@ import json
 class CompanySpider(scrapy.Spider):
 
     name = "company_spider"
-    start_urls = ['http://corporate.northwestern.edu/highlighted-partnerships/index.html']
+    start_urls = ['https://www.sice.indiana.edu/alumni-giving/giving/corporate-partners/accelerator.html']
 
     def parse(self, response):
-        SET_SELECTOR = '//*[@id="main-content"]'
+        SET_SELECTOR = '//*[@id="content-wrap"]/div'
 
 
         for coset2 in response.xpath(SET_SELECTOR):
-            TABLE_SELECTOR = 'strong::text'
+            TABLE_SELECTOR = 'h4::text'
+            SEC_SELECTOR = 'strong::text'
+            CO_SELECTOR = 'p::text'
             yield{
-                'corp_spons' : coset2.css(TABLE_SELECTOR).extract(),
+                'headings': coset2.css(TABLE_SELECTOR).extract(),
+                'info': coset2.css(SEC_SELECTOR).extract(),
+                'company_1_3_9': coset2.xpath('//*[@id="sidebar"]/div[2]/div/div/p/text()').extract(),
+                'gift_dest': coset2.xpath('//*[@id="content"]/p/em/text()').extract(),
+                'preferred_5000': coset2.xpath('//*[@id="content"]/ul[1]/li/text()').extract(),
+                'premier_10000': coset2.xpath('//*[@id="content"]/ul[2]/li/text()').extract(),
                 #'friend_level': coset2.xpath('//table[1]/tbody/tr/td/text()').extract(),
                 #'details': coset2.css('p::text').extract(),
                 #'details': coset2.xpath('.//p/text()').extract(),

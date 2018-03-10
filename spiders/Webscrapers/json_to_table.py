@@ -85,7 +85,9 @@ elif count_tables == '1':
      values = [['<b>University of Maryland:</b> Partner Level'],
                    ['<b>Tier 1: Giga</b>'],
                    ['<b>Tier 2: Mega</b>'],
-                   ['<b>Tier 3: Kilo</b>']],
+                   ['<b>Tier 3: Kilo</b>'],
+                   ['<b>Pricing Info</b>']],
+
      line = dict(color = 'black'),
      fill = dict(color = umd_headerColor),
      align = ['left','center'],
@@ -96,7 +98,9 @@ elif count_tables == '1':
        [umd_highest],
        [stored_data.giga_partners],
        [stored_data.mega_partners],
-       [stored_data.kilo_partners]],
+       [stored_data.kilo_partners],
+       [stored_data.pricing]],
+       
      line = dict(color = 'black'),
      fill = dict(color = [umd_row_colors]),
      align = ['left', 'center'],
@@ -130,9 +134,12 @@ elif count_tables == '2':
     type = 'table',
     header = dict(
       values = [['<b>University of Minnesota:</b> Partner Level'],
-                    ['<b>Tier 1: </b>'],
-                    ['<b>Tier 2: Sponsors</b>'],
-                    ['<b>Tier 3: </b>']],
+                    ['<b>Sponsors</b>'],
+                    ['<b>Potentional Sponsorship Oppurtunities </b>'],
+                    ['<b>Bronze Plan ($2,000 per year)</b>'],
+                    ['<b>Silver Plan ($10,000 per year)</b>'],
+                    ['<b>Gold Plan ($25,000 per year)</b>'],
+                    ['<b>Platinum Plan ($50,000 per year)</b>']],
 
       line = dict(color = '#506784'),
       fill = dict(color = minn_headerColor),
@@ -142,9 +149,13 @@ elif count_tables == '2':
     cells = dict(
       values = [
         [minn_highest],
-        [['']],
         [stored_data.minn_sponsors],
-        [['']]],
+        [stored_data.minn_events],
+        [stored_data.minn_bronze],
+        [stored_data.minn_silver],
+        [stored_data.minn_gold],
+        [stored_data.minn_platinum]],
+        
 
       line = dict(color = 'rgb(17, 17, 17)'),
       fill = dict(color = [minn_row_colors]),
@@ -168,7 +179,7 @@ elif count_tables=='3':
   count = 1
   ill_highest = []
   ill_row_colors = []
-  while count < stored_data.ill_tier2:
+  while count < stored_data.ill_tier1:
       ill_highest.append(count)
       count += 1
       if count % 2 == 0:
@@ -181,9 +192,10 @@ elif count_tables=='3':
     type = 'table',
     header = dict(
       values = [['<b>University of Illinois:</b> Partner Level'],
-                    ['<b>Tier 1: </b>'],
-                    ['<b>Tier 2: Sponsors</b>'],
-                    ['<b>Tier 3: </b>']],
+                    ['<b>Tier 1: Start Ups ($20,000 per year)</b>'],
+                    ['<b>Tier 2: Sponsors ($20,000 per year)</b>'],
+                    ['<b>Tier 3: Sponsorship Details</b>'],
+                    ['<b>Tier 4: Sponsorship Advantages</b>']],
 
       line = dict(color = '#506784'),
       fill = dict(color = ill_headerColor),
@@ -193,9 +205,10 @@ elif count_tables=='3':
     cells = dict(
       values = [
         [ill_highest],
-        [['']],
+        [stored_data.ill_startups],
         [stored_data.ill_sponsors],
-        [['']]],
+        [stored_data.ill_sponsorplan],
+        [stored_data.ill_moredets]],
 
       line = dict(color = 'rgb(17, 17, 17)'),
       fill = dict(color = [ill_row_colors]),
@@ -231,9 +244,12 @@ elif count_tables=='4':
     type = 'table',
     header = dict(
       values = [['<b>University of Purdue:</b> Partner Level'],
-                    ['<b>Tier 1: Advisor</b>'],
-                    ['<b>Tier 2: Friend</b>'],
-                    ['<b>Tier 3: </b>']],
+                ['<b>Tier 1: Advisor ($10,000 per year)</b>'],
+                ['<b>Tier 2: Friend ($5,000 per year)</b>'],
+                ['<b>Tier 3: </b>'],
+                ['<b>Advisor Description:</b>'],
+                ['<b>Friend Description:</b>'],
+                ['<b>Additional Details:</b>']],
 
       line = dict(color = '#506784'),
       fill = dict(color = purdue_headerColor),
@@ -245,7 +261,10 @@ elif count_tables=='4':
         [purdue_highest],
         [stored_data.purdue_advisors],
         [stored_data.purdue_friends],
-        [['']]],
+        [['']],
+        [stored_data.purdue_advisor_plans],
+        [stored_data.purdue_friend_plans],
+        [stored_data.purdue_details]],
 
       line = dict(color = 'rgb(17, 17, 17)'),
       fill = dict(color = [purdue_row_colors]),

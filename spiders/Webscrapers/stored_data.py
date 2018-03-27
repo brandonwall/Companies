@@ -93,7 +93,9 @@ minn_platinum = minn_of_u.get('platn_comp_plans')
 minn_clean_sponsors = [x.replace('\n', '') for x in minn_sponsors]
 minn_sponsors = minn_clean_sponsors
 
+minn_tier1 = 0
 minn_tier2 = len(minn_sponsors)
+minn_tier3 = 0
 
 minn_total =  minn_tier2 
 
@@ -219,5 +221,6 @@ purdue_friend_plans = purdue_plan_descrips.get('friend_level')
 purdue_details = purdue_plan_descrips.get('details')
 
 
+'''                                         ------GENERATE DATA 5: Wisc-Madison-----                                       '''
 
 

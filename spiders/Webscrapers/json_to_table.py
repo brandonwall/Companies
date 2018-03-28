@@ -12,17 +12,17 @@ count_tables = sys.argv[1]
 ''' bar graph '''
 if count_tables == '0':
   trace0 = go.Bar(
-      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue'],
-      y=[stored_data.umd_g, stored_data.minn_tier1, stored_data.ill_tier1, stored_data.purdue_tier1],
+      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue', 'U of Wisconsin-Madison', 'U of Washington','Carnigie Mellon'],
+      y=[stored_data.umd_g, stored_data.minn_tier1, stored_data.ill_tier1, stored_data.purdue_tier1, stored_data.wisc_tier1, stored_data.wash_tier1,stored_data.carn_tier1],
       name='Giga Partners (Tier 1)',
       marker=dict(
-          color='rgb(244,66,80)'
+          color='rgb(244,66,80)', 
       )
   )
 
   trace1 = go.Bar(
-      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue'],
-      y=[stored_data.umd_m, stored_data.minn_tier2, stored_data.ill_tier2, stored_data.purdue_tier2],
+      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue', 'U of Wisconsin-Madison','U of Washington','Carnigie Mellon'],
+      y=[stored_data.umd_m, stored_data.minn_tier2, stored_data.ill_tier2, stored_data.purdue_tier2, stored_data.wisc_tier2, stored_data.wash_tier2,stored_data.carn_tier2],
       name='Mega Partners (Tier 2)',
       marker=dict(
           color='rgb(66,152,244)',
@@ -31,8 +31,8 @@ if count_tables == '0':
   )
 
   trace2 = go.Bar(
-      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue'],
-      y=[stored_data.umd_k, stored_data.minn_tier3, stored_data.ill_tier3, stored_data.purdue_tier3],
+      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue', 'U of Wisconsin-Madison','U of Washington','Carnigie Mellon'],
+      y=[stored_data.umd_k, stored_data.minn_tier3, stored_data.ill_tier3, stored_data.purdue_tier3, stored_data.wisc_tier3, stored_data.wash_tier3,stored_data.carn_tier3],
       name='Kilo Partners (Tier 3)',
       marker=dict(
           color='rgb(113,66,244)',
@@ -40,8 +40,8 @@ if count_tables == '0':
   )
 
   trace3 = go.Bar(
-      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue'],
-      y=[stored_data.umd_total, stored_data.minn_total, stored_data.ill_total, stored_data.purdue_total],
+      x=['U of MD', 'U of Minnesota', 'U of Illinois', 'Purdue', 'U of Wisconsin-Madison','U of Washington',"Carnigie Mellon"],
+      y=[stored_data.umd_total, stored_data.minn_total, stored_data.ill_total, stored_data.purdue_total, stored_data.wisc_total, stored_data.wash_total, stored_data.carn_total],
       name='Total',
       marker=dict(
           color='rgb(65, 244, 146)',
@@ -275,5 +275,167 @@ elif count_tables=='4':
   data = [trace3]
 
   py.plot(data, filename = "Purdue data table")
+
+elif count_tables=='5':
+  
+  '''                                        ------GENERATE TABLE 5: Wisc Madison -----                                      '''
+
+  wisc_headerColor = 'rgb(255, 96, 112)'
+  wisc_rowEvenColor = 'white'
+  wisc_rowOddColor = 'rgb(255, 221, 137)'
+
+  count = 1
+  wisc_highest = []
+  wisc_row_colors = []
+  while count < len(stored_data.wisc_mad_bronze):
+      wisc_highest.append(count)
+      count += 1
+      if count % 2 == 0:
+          wisc_row_colors.append(wisc_rowEvenColor)
+      else:
+          wisc_row_colors.append(wisc_rowOddColor)
+
+
+  trace3 = go.Table(
+    type = 'table',
+    header = dict(
+      values = [['<b>Wisconsin-Madison:</b> Partner Level'],
+                ['<b>Tier 1: Gold ($25,000 Annualy)</b>'],
+                ['<b>Tier 2: Silver ($10,000 Annualy)</b>'],
+                ['<b>Tier 3: Bronze ($5,000 Annualy)</b>'],
+                ['<b>Gold Description:</b>'],
+                ['<b>Silver Description:</b>'],
+                ['<b>Bronze Descritpion</b>']],
+
+      line = dict(color = '#506784'),
+      fill = dict(color = wisc_headerColor),
+      align = ['left','center'],
+      font = dict(color = 'white', size = 12)
+    ),
+    cells = dict(
+      values = [
+        [wisc_highest],
+        [stored_data.wisc_gold_partners],
+        [stored_data.wisc_silver_partners],
+        [stored_data.wisc_bronze_partners],
+        [stored_data.wisc_mad_gold],
+        [stored_data.wisc_mad_silver],
+        [stored_data.wisc_mad_bronze]],
+
+      line = dict(color = 'rgb(17, 17, 17)'),
+      fill = dict(color = [wisc_row_colors]),
+      align = ['left', 'center'],
+      font = dict(color = 'rgb(17, 17, 17)', size = 11)
+      ))
+
+  data = [trace3]
+
+  py.plot(data, filename = "Wisconsin Madison data table")
+
+elif count_tables=='6':
+  
+  '''                                        ------GENERATE TABLE 6: U of Washington-----                                      '''
+
+  wash_headerColor = 'rgb(159, 43, 255)'
+  wash_rowEvenColor = 'white'
+  wash_rowOddColor = 'rgb(255, 249, 183)'
+
+  count = 1
+  wash_highest = []
+  wash_row_colors = []
+  while count < len(stored_data.wash_comp):
+      wash_highest.append(count)
+      count += 1
+      if count % 2 == 0:
+          wash_row_colors.append(wash_rowEvenColor)
+      else:
+          wash_row_colors.append(wash_rowOddColor)
+
+
+  trace3 = go.Table(
+    type = 'table',
+    header = dict(
+      values = [['<b>University of Washington:</b> Partner Level'],
+                ['<b>Corporate Affiliate Partners</b>'],
+                ['<b>Plan Details</b>'],
+                ['<b>Company Benefits</b>'],
+                ['<b>General Benefits</b>'],
+                ['<b>University Benefits</b>']],
+
+      line = dict(color = '#506784'),
+      fill = dict(color = wash_headerColor),
+      align = ['left','center'],
+      font = dict(color = 'white', size = 12)
+    ),
+    cells = dict(
+      values = [
+        [wash_highest],
+        [stored_data.wash_comp],
+        [stored_data.wash_details],
+        [stored_data.wash_benefits],
+        [stored_data.wash_general_ben],
+        [stored_data.wash_univ_ben]],
+
+      line = dict(color = 'rgb(17, 17, 17)'),
+      fill = dict(color = [wash_row_colors]),
+      align = ['left', 'center'],
+      font = dict(color = 'rgb(17, 17, 17)', size = 11)
+      ))
+
+  data = [trace3]
+
+  py.plot(data, filename = "University of Washington data table")
+
+
+
+elif count_tables == '7':
+
+  '''                                        ------GENERATE TABLE 7: Carnigie Mellon U-----                                      '''
+
+  carn_headerColor = 'rgb(196, 30, 58)'
+  carn_rowEvenColor = 'white'
+  carn_rowOddColor = 'rgb(128,128,128)'
+
+  count = 1
+  carn_highest = []
+  carn_row_colors = []
+  while count < len(stored_data.carn_ben):
+      carn_highest.append(count)
+      count += 1
+      if count % 2 == 0:
+          carn_row_colors.append(carn_rowEvenColor)
+      else:
+          carn_row_colors.append(carn_rowOddColor)
+
+
+  trace3 = go.Table(
+    type = 'table',
+    header = dict(
+      values = [['<b>Carnegie Mellon University:</b> Partner Level'],
+                ['<b>Sponsors</b>'],
+                ['<b>Company Oppurtunities</b>'],
+                ['<b>Additional Details</b>']],
+
+      line = dict(color = '#506784'),
+      fill = dict(color = carn_headerColor),
+      align = ['left','center'],
+      font = dict(color = 'white', size = 12)
+    ),
+    cells = dict(
+      values = [
+        [carn_highest],
+        [stored_data.carn_comp],
+        [stored_data.carn_ben],
+        [stored_data.carn_details]],
+
+      line = dict(color = 'rgb(17, 17, 17)'),
+      fill = dict(color = [carn_row_colors]),
+      align = ['left', 'center'],
+      font = dict(color = 'rgb(17, 17, 17)', size = 11)
+      ))
+
+  data = [trace3]
+
+  py.plot(data, filename = "Carnigie Mellon University data table")
 else: 
   print "Incorrect Number."

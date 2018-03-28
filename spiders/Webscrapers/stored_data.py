@@ -7,10 +7,9 @@ my_data = {"giga": ["Leidos "], "headings": ["Giga Partners", "Mega Partners", "
            "kilo": ["Accenture  ", "Adobe ", "AINS ", "Appian ", "AQR ", "Cipher Tech Solutions ", "Dante  ",
             "Easy Dynamics ", "Facebook ", "Geico ", "Goldman Sachs ", "Google ", "MicroStrategy ", "NSA ", "Oculus  ",
             "OPIS ", "SIG ", "SuprTEK ", "The Aerospace Corporation  "],
-            "pricing": ["$10,000 for most companies", "$15,000 - Palantir", 
-                        "$20,000 and a $5,000 scholarship", "$5,000 - x2 companies", 
-                        "3 honorary (Google, Microsoft, AFCEA)"]
-            }
+            "pricing": ["$10,000 for most companies", "$15,000 - Palantir", "$5,000 scholarship and a 20,000 dollar donation",
+                        "$5,000 - x2 companies","3 honorary (Google, Microsoft, AFCEA)"
+                        ]}
 
 global giga_partners
 global mega_partners
@@ -222,5 +221,122 @@ purdue_details = purdue_plan_descrips.get('details')
 
 
 '''                                         ------GENERATE DATA 5: Wisc-Madison-----                                       '''
+wisc_mad_data = {"Bronze_5000_Annualy": ["One free career fair (limit 1 table)", "Preferred choice of on-campus interview and career fair dates", 
+                "Welcoming message on social media outlets of the Corporate Partners Program with link to employers website or careers site", 
+                "Logo/link displayed on Engineering Career Services website and on Corporate Partners Program page on College of Engineering website", 
+                "Logo displayed on available poster/electronic screen displays throughout College of Engineering", 
+                "Opportunity to organize mock interview or information sessions", "Branding recognition at all career fairs", 
+                "Email blast to targeted students relating to employers job postings, special event or info session", 
+                "Invitation to participate in the Diversity Spring Welcome event", "Invitation to participate in the Industry Showcase during Innovation Days",
+                 "Advance interview schedule sign up prior to career fairs", "Assistance in executing student recruiting events", 
+                 "Sponsor of Engineering Career Services Job Search Guide when published", "Employer name and logo on all career fair materials distributed to students"],
+              "Gold_25000_Annualy": ["Multiple info sessions & tech talks throughout the year", "Execute employer meet & greet in desired academic department", 
+                  "Opportunity to display organization video/promo (30 seconds max) on video boards throughout engineering accompanied with social media postings to engineering pages", 
+                  "Article in Perspective magazine highlighting UW-Madison engineering alumni within the organization and the organizations connection to the college"], 
+              "Silver_10000_Annualy": ["Two free career fairs (Limit 2 tables)", "Host a corporate day on the College of Engineering campus", 
+                  "Support in executing engagement strategy with student organizations and departments, including revenue sharing to streamline campus efforts", 
+                  "Opportunity to have a corporate executive speak to students within a department"],
+              "Gold_Partners": ["Epic", "Georgia-Pacific", "Hydrite Chemical Co."],
+              "Silver_Partners": ["Boston Scientific", "CAT", "Ford", "Greenheck", "Micron", "Oshkosh", "Plexus", "Spectrum Brands", "Sub Zero Wolf", "X-ES, Extreme Engineering Solutions"],
+              "Bronze_Partners": ["Abbvie", "Capital One", "Dell", "Ecolab", "G&E, Gas and Electric", "GKN Sinter Metals", "Target"]}
+
+
+global wisc_mad_gold
+global wisc_mad_silver
+global wisc_mad_bronze
+global wisc_tier1
+global wisc_tier2
+global wisc_tier3
+global wisc_total
+
+global wisc_gold_partners
+global wisc_silver_partners
+global wisc_bronze_partners
+
+wisc_gold_partners = wisc_mad_data.get('Gold_Partners')
+wisc_silver_partners = wisc_mad_data.get('Silver_Partners')
+wisc_bronze_partners = wisc_mad_data.get('Bronze_Partners')
+
+
+
+
+wisc_mad_bronze = wisc_mad_data.get('Bronze_5000_Annualy')
+wisc_mad_silver = wisc_mad_data.get('Silver_10000_Annualy')
+wisc_mad_gold = wisc_mad_data.get('Gold_25000_Annualy')
+
+wisc_tier1 = len(wisc_gold_partners)
+wisc_tier2 = len(wisc_silver_partners)
+wisc_tier3 = len(wisc_bronze_partners)
+wisc_total = wisc_tier1 + wisc_tier2 + wisc_tier3
+
+'''                                         ------GENERATE DATA 6: University of Washington-----                                       '''
+
+
+wash_data = {"Univ_Benefits": ["The advantages to the University are also substantial. We can learn about current problems in industry. Students become acquainted with industrial needs. The co-op program and summer internships in local and national industry provide students with a complementary element to their education. The result of the interaction is greater excellence in both the research and teaching missions of the school.",], 
+            "General_Benefits": ["The program offers many benefits to business and industry. There is the opportunity to influence computing research and education and to participate in long-range technical assessments of problems and directions in the field. Contacts with prospective employees can be established easily; affiliates have early access to student resumes and student and faculty publications. Special seminars and short courses can be arranged. Faculty members are available for informal technical discussions and more formal presentations."], 
+            "Benefits": ["attendance at an annual Industry Affiliates Program meeting that features research overviews by faculty, in-depth research presentations and demonstrations by students on current work, working sessions on common technical areas with both faculty and students, and opportunities to interview prospective employees;", "seminars by faculty members at the affiliate company's site (upon request);", "access to online resumes submitted by graduating students at all degree levels, as well as ability to post open positions on CSE's jobs board;", 
+                         "announcement of interesting seminars and presentations;", "contact with technical and administrative representatives of other affiliate companies; and", "many opportunities for informal meetings.","Research overviews by faculty and updates on recent developments and research results within the department.", "Small focused sessions organized by research areas where students, faculty, and affiliates can interact in a workshop setting and discuss research areas in depth.", "Demonstrations of software and hardware systems developed by our research projects.", 
+                         "One-on-one meetings with individual faculty and students to create and/or continue collaborations.", "Discussion of the educational mission of the department and the continuous changes and improvements made to the curriculum", "Interaction with other affiliate members.", "Opportunities to interview and discuss employment opportunities with our undergraduate and graduate students for both permanent and co-op/internship positions."],
+            "Details": ["$250 for individual entrepreneurs or startups with 10 or fewer employees", "$500/year for startups and companies of fewer than 50 employees", "$2,500/year for those with between 50 and 150 employees", "$5,000/year for those with between 150 and 1000 employees", "$10,000/year for larger companies"], 
+            "Companies": ["3Tier Environmental Forecast Group", "8VC", "Adaptiva", "Adobe", "Affirm", "Allen Institute for Artificial Intelligence", "airbnb", "Allen Institute", "Allen Institute for Artificial Intelligence", "Amazon", "Amperity", "Andreessen Horowitz", "AppDynamics", "Apple", "Aqua Alert", "Arista Networks", "Axon", "Bizible", "BloomReach", "Blue Origin", "Bonanza", "Bungie", "Chief Architect Software", "Cisco Systems, Inc.", "Classify & Process Inc.", "Clean Power Research", "Clustrix", "Coding Dojo", "Conenza", "Convoy Inc.", "Coupang", "Cozi", "Cray", "Curalate", "Daimler (Mercedes-Benz)", "Deja vu Security", "Dell EMC", "Delphix", "Disney", "DocuSign", "Doosan GridTech", "Edutech Lab, Inc.", "Entrupy Inc.", "Ericsson", "Expeditors", "Extrahop Networks", "F5 Networks", "Facebook", "GE Digital", "GoDaddy", "Google", "Hive Battery", "Hoists Direct", "Huawei", "Hulu", "Icebrg, LLC", "Igneous Systems", "Ignition Partners", "Impinj", "Indeed", "Intel", "Karat", "Kernel Labs", "Kloa", "Lawrence Livermore National Lab", "Lightspeed Venture Partners", "Los Alamos National Laboratory", "Luum", "Madrona Venture Group", "Marchex", "MemSQL", "Meraki", "Mesosphere", "MicaSense", "Microsoft", "mohCare", "NVIDIA", "Noonum", "Nordstrom", "Nutanix", "Nuvoton", "OfferUp", "OpenMarket", "Pacific Northwest National Laboratory", "Palantir Technologies", "PayScale", "Perkins Coie, LLP", "Pixar", "Qualtrics", "Quantcast", "Qumulo", "RareCyte", "RealNetworks", "RealSelf", "Redfin Corporation", "Remitly", "RetailMeNot", "resin.io", "Riot Games", "Sage Bionetworks", "Salesforce.com", "Samsung", "Sandia National Labs", "shopkick", "Sift Science", "Simply Measured", "Socrata", "Splunk", "Starbucks", "StuffMapper", "Tableau Software", "Tellwise", "Tencent", "Tibco", "TUNE", "twitter", "Two Sigma", "UW CoMotion", "Uber", "Unity Technologies", "unravel", "Voyager Capital", "Vulcan", "Washington Research Foundation", "WTIA", "Whitepages", "Workday", "XKL LLC", "Zillow"]}
+
+global wash_comp
+global wash_univ_ben
+global wash_general_ben
+global wash_benefits
+global wash_details
+global wash_tier1
+global wash_tier2
+global wash_tier3
+global wash_total
+
+wash_comp = wash_data.get('Companies')
+wash_univ_ben = wash_data.get('Univ_Benefits')
+wash_general_ben = wash_data.get('General_Benefits')
+wash_benefits = wash_data.get('Benefits')
+wash_details = wash_data.get('Details')
+
+wash_tier1 = 0
+wash_tier2 = 0
+wash_tier3 = 0
+wash_total = len(wash_comp)
+
+
+global carn_comps
+global carn_ben
+global carn_details
+global carn_tier1
+global carn_tier2
+global carn_tier3
+global carn_total
+
+carn_data={"Comps": ["Oculus", "Microsoft", "Catepillar", "Boeing", "Amazon", "Department of Defense", 
+                     "IBM", "NASA", "Google"],
+          "Partnership_Ops": ["Fund an Endowed Chair or Fellowship", "Participate in Sponsored Research", 
+                              "Sponsor an Event", "Fund a Scholarship","Sponsor a research opportunity", 
+                              "Endow a faculty chair", "Join an affiliate center", "License a new technology", 
+                              "Create a fellowship or scholarship", "Support a student organization", "Sponsor a capstone project", 
+                              "Donate to a lecture series or fund", "Learn about recruitment opportunities","Name a professorship",
+                              "Provide a capital gift", "Name a lab or learning space", "Donate equipment or software ", "Name a college or deanship"],
+          "Details": [" OurCS has a tradition of working closely  with industry and research groups to both understand critical gender issues in professional  settings, as well as exploring job opportunities for women researchers  in computing related domains.",
+                      " The School of Computer Science at Carnegie Mellon University  welcomes sponsors to join us in supporting OurCS for women  undergraduates in the United States and around the world. ", 
+                      " Exclusive  sponsorship gives a single company or computing related domain full brand exposure for a single  offering of OurCS. This includes high-profile recognition on the OurCS  web site, and inclusion in CMU-based media articles, press releases and  all event-related announcements. Additionally, sponsors are asked to  recommend potential speakers and mentors for OurCS events.", 
+                      " Co-sponsorships provide similar identity opportunities, only shared among two or more co-sponsors and providing around $25,000 each.", " We welcome gifts at any level from secondary sponsors and will provide online visibility and recognition for their contributions! ", 
+                      " The two primary value propositions for sponsors are taking a  high-profile leadership position in the global effort to recognize and  encourage women in computer science; and two, direct connection to a  pool of top talent in the field, including access to student resumes (with their permission). For companies and research groups with strong STEM  priorities, this is an opportunity to have a measurable, long-term  impact on the field." ]}
+
+
+carn_comp = carn_data.get("Comps")
+carn_details = carn_data.get("Details")
+carn_ben = carn_data.get("Partnership_Ops")
+carn_tier1 = 0
+carn_tier2 = 0
+carn_tier3 = 0
+carn_total = len(carn_comp)
+
+
+
+
+
+
 
 
